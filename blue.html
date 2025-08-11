@@ -1,0 +1,690 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GRAHAM LEUNG Portfolio</title>
+  <meta name="description" content="Resume and portfolio website for Isimeli Savutini — HRIS Specialist, Web Developer and IT Consultant." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+ :root {
+   --bg: #152d4f;       /* Medium navy blue, softer */
+   --card: #1e3a6a;     /* Lighter navy for cards */
+   --muted: #a0adc1;    /* Soft muted blue-gray for text */
+   --accent: #3b82f6;   /* Calm professional blue accent */
+   --glass: rgba(255, 255, 255, 0.05);
+ }
+ * {
+   box-sizing: border-box;
+   scroll-behavior: smooth;
+ }
+ html, body {
+   height: 100%;
+   margin: 0;
+   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+   color: #e6eef3;
+   background: linear-gradient(180deg, #123a70 0%, #152d4f 60%);
+   -webkit-font-smoothing: antialiased;
+ }
+
+ header {
+   position: sticky;
+   top: 0;
+   backdrop-filter: blur(6px);
+   background: linear-gradient(180deg, rgba(5, 10, 15, 0.55), rgba(5, 10, 15, 0.35));
+   padding: 12px 28px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   z-index: 50;
+   border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+ }
+ .brand {
+   display: flex;
+   align-items: center;
+   gap: 14px;
+ }
+ .logo {
+   width: 46px;
+   height: 46px;
+   border-radius: 10px;
+   background: linear-gradient(135deg, var(--accent), #1e40af);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-weight: 800;
+   color: #022;
+   box-shadow: 0 6px 18px rgba(3, 8, 15, 0.6);
+ }
+ nav a {
+   color: var(--muted);
+   text-decoration: none;
+   margin-left: 18px;
+   font-weight: 600;
+   transition: all 0.3s ease;
+ }
+ nav a:hover {
+   color: #fff;
+   transform: scale(1.05);
+ }
+
+ .container {
+   max-width: 1100px;
+   margin: 36px auto;
+   padding: 28px;
+ }
+ .hero {
+   display: grid;
+   grid-template-columns: 1fr 380px;
+   gap: 28px;
+   align-items: center;
+ }
+ .card {
+   background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+   padding: 22px;
+   border-radius: 14px;
+   border: 1px solid rgba(255, 255, 255, 0.03);
+   box-shadow: 0 8px 30px rgba(2, 6, 23, 0.6);
+   transition: all 0.3s ease;
+   background-color: var(--card);
+ }
+ .card:hover {
+   box-shadow: 0 12px 30px rgba(2, 6, 23, 0.8);
+   transform: scale(1.02);
+ }
+ h1 {
+   font-size: 28px;
+   margin: 0 0 6px 0;
+ }
+ .subtitle {
+   color: var(--muted);
+   margin-bottom: 14px;
+ }
+ .meta {
+   display: flex;
+   gap: 10px;
+   flex-wrap: wrap;
+   color: var(--muted);
+   font-weight: 600;
+ }
+
+ .cta {
+   margin-top: 14px;
+   display: flex;
+   gap: 10px;
+ }
+ .btn {
+   padding: 10px 14px;
+   border-radius: 10px;
+   text-decoration: none;
+   font-weight: 700;
+   border: 1px solid rgba(255, 255, 255, 0.06);
+   background: transparent;
+   color: #fff;
+   transition: all 0.3s ease;
+ }
+ .btn:hover {
+   background: var(--accent);
+   color: #012;
+   transform: scale(1.05);
+   box-shadow: 0 4px 18px rgba(59, 130, 246, 0.6);
+ }
+ .btn-primary {
+   background: linear-gradient(90deg, var(--accent), #1e40af);
+   color: #012;
+   box-shadow: 0 8px 18px rgba(4, 12, 20, 0.5);
+ }
+
+ .profile-blurb {
+   margin-top: 10px;
+   color: #cfe7ea;
+ }
+
+ .sidebar .avatar {
+   width: 100%;
+   border-radius: 10px;
+   height: 220px;
+   background: linear-gradient(180deg, #1f497e, #1e3a6a);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   color: #cfe7ea;
+   font-weight: 800;
+   font-size: 18px;
+   transition: all 0.3s ease;
+ }
+ .sidebar .avatar:hover {
+   transform: scale(1.02);
+   box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+ }
+ .info-list {
+   margin-top: 12px;
+   color: var(--muted);
+   line-height: 1.6;
+ }
+
+ .grid {
+   display: grid;
+   grid-template-columns: 1fr 360px;
+   gap: 22px;
+   margin-top: 22px;
+ }
+ @media (max-width: 980px) {
+   .hero {
+     grid-template-columns: 1fr;
+   }
+   .grid {
+     grid-template-columns: 1fr;
+   }
+ }
+
+ .timeline {
+   position: relative;
+   padding-left: 18px;
+ }
+ .timeline:before {
+   content: '';
+   position: absolute;
+   left: 6px;
+   top: 4px;
+   bottom: 0;
+   width: 2px;
+   background: linear-gradient(180deg, var(--accent), #1e40af);
+   border-radius: 2px;
+ }
+ .item {
+   position: relative;
+   padding: 14px 18px;
+   margin-bottom: 12px;
+   background: rgba(255, 255, 255, 0.02);
+   border-radius: 10px;
+   border: 1px solid rgba(255, 255, 255, 0.02);
+   transition: all 0.3s ease;
+ }
+ .item:hover {
+   transform: scale(1.02);
+   box-shadow: 0 6px 18px rgba(59, 130, 246, 0.3);
+ }
+ .item:before {
+   content: '';
+   position: absolute;
+   left: -18px;
+   top: 22px;
+   width: 12px;
+   height: 12px;
+   background: var(--accent);
+   border-radius: 50%;
+   box-shadow: 0 6px 14px rgba(3, 8, 15, 0.6);
+ }
+ .muted {
+   color: var(--muted);
+   font-size: 13px;
+ }
+
+ .skills {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 8px;
+ }
+ .skill {
+   padding: 8px 10px;
+   border-radius: 999px;
+   background: rgba(255, 255, 255, 0.03);
+   font-weight: 700;
+   font-size: 13px;
+   color: #e7fbfb;
+   transition: all 0.3s ease;
+ }
+ .skill:hover {
+   background: var(--accent);
+   color: #012;
+   transform: scale(1.05);
+   box-shadow: 0 4px 12px rgba(59, 130, 246, 0.5);
+ }
+
+ .projects {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   gap: 12px;
+ }
+ .proj {
+   padding: 12px;
+   border-radius: 10px;
+   background: rgba(255, 255, 255, 0.02);
+   border: 1px solid rgba(255, 255, 255, 0.02);
+   transition: all 0.3s ease;
+ }
+ .proj:hover {
+   background: var(--accent);
+   color: #012;
+   transform: scale(1.03);
+   box-shadow: 0 4px 18px rgba(59, 130, 246, 0.6);
+ }
+
+ .contact-card input,
+ .contact-card textarea {
+   width: 100%;
+   padding: 10px;
+   border-radius: 8px;
+   border: 1px solid rgba(255, 255, 255, 0.04);
+   background: transparent;
+   color: #e6eef3;
+ }
+ .small {
+   font-size: 13px;
+   color: var(--muted);
+ }
+
+ footer {
+   margin-top: 30px;
+   color: var(--muted);
+   text-align: center;
+   font-size: 13px;
+ }
+
+ @media (max-width: 560px) {
+   .projects {
+     grid-template-columns: 1fr;
+   }
+ }
+
+ .reveal {
+   transform: translateY(8px);
+   opacity: 0;
+   transition: all 520ms cubic-bezier(0.2, 0.9, 0.2, 1);
+ }
+ .reveal.visible {
+   transform: none;
+   opacity: 1;
+ }
+</style>
+
+
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo">GL</div>
+      <div>
+        <div style="font-weight:800;color:#030303fd">Graham Leung</div>
+        <div style="font-size:13px;color:var(--muted)">L L . M, L L . B ( H o n), G D L P </div>
+      </div>
+    </div>
+    <nav aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <a class="btn" href="assets/Isimeli_Savutini_Resume.docx" download>Download CV</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="card">
+        <h1>Graham Leung</h1>
+        <div class="subtitle">L L . M, L L . B ( H o n), G D L P </div>
+        <div class="meta">
+          <div>613 Viti Levu Dr, Pacific Harbour; GPO Box 18757, Suva</div>
+          <div>+679 9498593</div>
+          <div><a href="mailto:ovalaublue@gmail.com" style="color:var(--accent);text-decoration:none">ovalaublue@gmail.com</a></div>
+        </div>
+         <p class="profile-blurb">
+          Highly experienced lawyer with over 38 years’ experience in law, diplomacy and governance with extensive practice in governance, administrative law, constitutional law and litigation; legal counsel and advisory services. High-level diplomatic skills gained through previous ambassadorial roles.
+        </p>
+        <p class="profile-blurb">
+       Change and management expertise along with inclusive, transparent and democratic leadership strategy, focusing on staff engagement and empowerment, team cohesion and capacity building.
+        </p>
+        <p class="profile-blurb">
+          Ability to network and build strong professional relationships through positive, empathic and professional communication, and collaborate with key decision makers to provide constructive feedback on best governance, rule of law and human rights.
+        </p>
+
+        <div class="cta">
+          <a class="btn btn-primary" href="#contact">Hire / Contact</a>
+          <a class="btn" href="#projects">Key Strengths</a>
+        </div>
+
+        <div style="margin-top:18px">
+          <strong class="small">Selected Qualification</strong>
+          <div class="skills" style="margin-top:8px">
+            <div class="skill">Bachelor of Laws [Hons] |University of Adelaide</div>
+            <div class="skill">Graduate Diploma of Legal Practice | University of South Australia </div>
+            <div class="skill">Master of Laws/University of California (UCLA)</div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="sidebar card">
+        <div class="avatar">Graham Leung</div>
+        <div class="info-list">
+          <div class="muted">Location</div>
+          <div>613 Viti Levu Dr, Pacific Harbour; GPO Box 18757, Suva</div>
+          <div class="muted" style="margin-top:8px">Languages</div>
+          <div>Fijian • English</div>
+          
+           
+           <div class="muted" style="margin-top:8px"><div>Adddition Information</div>
+           <li>Barrister and Solicitor of the Supreme Court of South Australia</li>
+<li>Barrister and Solicitor of the High Court of Fiji</li> <li>Barrister & Solicitor, High Court of Cook Islands</li><li>Trustee, Fr Law Home Member</li> <li>GCC Review Team</li>
+</div><br>
+
+ <div class="muted" style="margin-top:8px"><div>Previous Professional Associations:</div>
+           <li>Deputy Ambassador, Permanent Mission of Fiji to the United Nations</li>
+<li>Human Rights Commissioner [Fiji] </li> <li>Chairman, Fiji Electoral Commission</li><li>Member,	Constitutional	Offices Commission</li> <li>President, Fiji Law Society</li>
+</div>
+
+
+          
+          
+        </div>
+      </aside>
+    </section>
+
+    <section class="grid">
+      <div>
+        <div id="experience" class="card reveal">
+  <h2>Work Experience</h2>
+  <div class="timeline" aria-label="Work timeline">
+
+    <div class="item">
+      <strong>Attorney General of Fiji</strong>
+      <div class="muted">May 2024- June 2025</div>
+    </div>
+    
+    <div class="item">
+      <strong>Solicitor General — Cook Islands</strong>
+      <div class="muted">2022</div>
+    </div>
+
+    <div class="item">
+      <strong>Consultant, Toganivalu Legal — Fiji</strong>
+      <div class="muted">2020 - 2022</div>
+    </div>
+
+    <div class="item">
+      <strong>Secretary for Justice & Border — Republic of Nauru</strong>
+      <div class="muted">2017 - 2019</div>
+    </div>
+
+    <div class="item">
+      <strong>Solicitor General — Republic of Nauru</strong>
+      <div class="muted">2016</div>
+    </div>
+
+    <div class="item">
+      <strong>Registrar, Supreme Court — Republic of Nauru</strong>
+      <div class="muted">2015 - 2016</div>
+    </div>
+
+    <div class="item">
+      <strong>Consultant — Solomon Islands</strong>
+      <div class="muted">2014 - 2015</div>
+    </div>
+
+    <div class="item">
+      <strong>Senior Trainer — Pacific Community, RRRT</strong>
+      <div class="muted">2012 - 2013</div>
+    </div>
+
+    <div class="item">
+      <strong>Human Rights Consultant — International Development Law Organisation, Rome</strong>
+      <div class="muted">2012 - 2013</div>
+    </div>
+
+    <div class="item">
+      <strong>Director, Centre for the Independence of Judges and Lawyers — International Commission of Jurists, Geneva</strong>
+      <div class="muted">2011 - 2012</div>
+    </div>
+
+    <div class="item">
+      <strong>Human Rights Consultant — Secretariat of the Pacific Community, Fiji</strong>
+      <div class="muted">2010 - 2011</div>
+    </div>
+
+    <div class="item">
+      <strong>Managing Partner — Howards Law Firm</strong>
+      <div class="muted">1998 - 2009</div>
+    </div>
+
+    <div class="item">
+      <strong>Deputy Solicitor General — Government of Fiji</strong>
+      <div class="muted">1997</div>
+    </div>
+
+    <div class="item">
+      <strong>Deputy Permanent Representative to UN — Government of Fiji, New York</strong>
+      <div class="muted">1994 - 1996</div>
+    </div>
+
+    <div class="item">
+      <strong>State Solicitor — Government of Fiji</strong>
+      <div class="muted">1993 - 1994</div>
+    </div>
+
+    <div class="item">
+      <strong>Legal and Political Officer — Pacific Islands Forum Secretariat</strong>
+      <div class="muted">1992 - 1993</div>
+    </div>
+
+    <div class="item">
+      <strong>Principal Legal Officer, Office of Director of Public Prosecutions — Government of Fiji</strong>
+      <div class="muted">1982 - 1992</div>
+    </div>
+
+  </div>
+</div>
+
+        <div id="projects" class="card reveal" style="margin-top:14px">
+          <h2>Key Strengths</h2>
+          <div class="projects">
+            <div class="proj">
+              <strong>Strong leadership and people management skills, including staff mentoring</strong>
+              
+            </div>
+            <div class="proj">
+              <strong>Strong management of multidisciplinary and multi-cultural teams / Cross-cultural skills</strong>
+             
+            </div>
+            
+            <div class="proj">
+              <strong>Sound knowledge of the socio- political situations, government systems and public policy processes in Fiji.</strong>
+             
+            </div>
+            
+            <div class="proj">
+              <strong>Extensive knowledge of governance, rule of law & strengthening democracy in Fiji and the Pacific region</strong>
+             
+            </div>
+            
+            <div class="proj">
+              <strong>Demonstrated record of providing complex and high level legal advice & counsel</strong>
+             
+            </div>
+            
+            <div class="proj">
+              <strong>Ability to network, communicate and represent effectively at national, regional and international levels</strong>
+             
+            </div>
+            
+            <div class="proj">
+              <strong>Demonstrated stakeholder engagement, communication,
+interpersonal and rapport building skills
+</strong>
+             
+            </div>
+            
+            <div class="proj">
+              <strong>Former Chairman, Fiji Electoral Commission (2006) under the 1997 Constitution.</strong>
+             
+            </div>
+            
+            <div class="proj">
+              <strong>Highly experienced lawyer whose strength includes legal drafting, opinion writing & statutory interpretation</strong>
+             
+            </div>
+            
+            <div class="proj">
+              <strong>Change management and innovation / Influential power, inspiring mutual vision</strong>
+             
+            </div>
+            
+            <div class="proj">
+              <strong>Promotion of Equity and Equality / High level of professional integrity and ethics</strong>
+             
+            </div>
+            
+            <div class="proj">
+              <strong>Highly skilled lawyer with both public/private sector experience including regional and international roles</strong>
+             
+            </div>
+           
+          </div>    
+          
+        </div>
+        
+         <div id="projects" class="card reveal" style="margin-top:3px">
+          <h2>Key Career Highlights </h2>
+          <div class="projects">
+            
+            
+          </div>    
+          
+        </div>
+        
+         <div class="card reveal" style="margin-top:14px">
+<h2>Attorney General of Fiji May 2024- June 2025</h2>
+ 
+ </div>
+
+        <div class="card reveal" style="margin-top:14px">
+<h2>Solicitor General | Cook Islands (Mar 2022 – Present)</h2>
+  <ul style="margin-top: 10px; color: var(--muted); line-height: 1.7;">
+    <li>Instrumental in drafting the new Anti-Corruption Act, 2023.</li>
+    <li>Managed and supervised the operations of the Crown Law Office.</li>
+    <li>Provided high-level and complex legal advice to the Prime Minister, Cabinet, and Ministers.</li>
+    <li>Negotiated, advised, and drafted contracts and legal agreements.</li>
+    <li>Advised on international agreements and conventions.</li>
+    <li>Oversaw legal drafting functions for government legislation and policy.</li>
+    <li>Controlled departmental budget and financial management processes.</li>
+    <li>Mentored and supervised professional legal staff to strengthen capacity.</li>
+  </ul>
+ </div>
+        
+        <div class="card reveal" style="margin-top:14px">
+           <h2>Secretary for Justice & Border Control | Republic of Nauru (2016 – 2019)</h2>
+          <ul style="margin-top:10px;color:var(--muted);line-height:1.7">
+             <li>Provided strategic leadership and oversight of the Department of Justice and related units including Corrections, Human Rights, Quarantine, Immigration, and the Financial Intelligence Unit.</li>
+    <li>Managed and supervised all litigation for and against the Republic.</li>
+    <li>Vetted and commented on draft Bills and legislation before Parliament.</li>
+    <li>Represented Government at high-level conferences and workshops.</li>
+    <li>Led senior staff recruitment, performance appraisals, and capacity building programs.</li>
+    <li>Collaborated with other government departments to formulate and implement national policies.</li>
+          </ul>
+        </div>
+        
+        
+        
+        <div class="card reveal" style="margin-top:14px">
+         <h2>Solicitor General / Registrar, Supreme Court | Republic of Nauru (2013 – 2019)</h2>
+          <ul style="margin-top:10px;color:var(--muted);line-height:1.7">
+           <li>Conducted civil litigation on behalf of the Republic.</li>
+    <li>Provided legal opinions, research, and Cabinet briefings.</li>
+    <li>Drafted Cabinet submissions, ministerial speeches, and vetted legal agreements.</li>
+    <li>Oversaw judicial administration for the District and Supreme Courts.</li>
+    <li>Supervised junior lawyers and paralegals, strengthening institutional capacity.</li>
+          </ul>
+        </div>
+        
+        
+        
+        <div class="card reveal" style="margin-top:14px">
+            <h2>Senior Trainer | Pacific Community, RRRT (2012 – 2013)</h2>
+          <ul style="margin-top:10px;color:var(--muted);line-height:1.7">
+            <li>Developed human rights policy frameworks and delivered training to Pacific judges, lawyers, and civil society.</li>
+    <li>Trained senior public servants on rights-based approaches to information access.</li>
+    <li>Conducted in-depth legal research, policy analysis, and program evaluations.</li>
+    <li>Built strategic alliances and produced needs assessment reports for the Pacific region.</li>
+          </ul>
+        </div>
+        
+        
+        <div class="card reveal" style="margin-top:14px">
+          <h2>Human Rights Consultant | International Development Law Organisation, Rome (2011 – 2012)</h2>
+          <ul style="margin-top:10px;color:var(--muted);line-height:1.7">
+            <li>Supported the Committee of Experts in drafting the new Constitution of Kenya.</li>
+          </ul>
+        </div>
+        
+        <div class="card reveal" style="margin-top:14px">
+       <h2>Director, Centre for the Independence of Judges & Lawyers | International Commission of Jurists, Geneva (2011 – 2012)</h2>
+          <ul style="margin-top:10px;color:var(--muted);line-height:1.7">
+            <li>Instrumental in drafting the new Anti-Corruption Act, 2023.</li>
+   <li>Produced position and policy papers on judicial independence.</li>
+    <li>Represented the organisation in global conferences on rule of law and human rights.</li>
+    <li>Developed and managed high-profile rule of law and human rights defender programs.</li>
+    <li>Strengthened international human rights standards and norms through advocacy.</li>
+    <li>Drafted funding proposals and engaged with donors to secure program sustainability.</li>
+          </ul>
+        </div>
+
+      </div>
+      
+
+      <aside>
+        <div class="card contact-card reveal">
+          
+
+          <hr style="margin:16px 0;border:none;border-top:1px solid rgba(255,255,255,0.03)">
+
+          <h3>Contact</h3>
+          <p class="small">Want to work together? Send a message or download the CV.</p>
+          <form onsubmit="event.preventDefault(); window.location.href='mailto:ovalaublue@gmail.com?subject=Website%20contact%20from%20Portfolio'" aria-label="Contact form">
+            <input name="name" placeholder="Your name" required style="margin-bottom:8px">
+            <input name="email" placeholder="Your email" required style="margin-bottom:8px">
+            <textarea name="message" rows="4" placeholder="Short message" required style="margin-bottom:8px"></textarea>
+            <div style="display:flex;gap:8px;align-items:center">
+              <button class="btn btn-primary" type="submit">Email Me</button>
+              <a class="btn" href="assets/Isimeli_Savutini_Resume.docx" download>Download CV</a>
+            </div>
+          </form>
+
+        </div>
+
+        <div class="card reveal" style="margin-top:12px">
+          <h3>Referees</h3>
+          <div class="small" style="line-height:1.6">
+            <strong>Daniel Fatiaki,</strong><br>Retired Chief Justice of Fiji<br>T: (679) 7815284<br>Email: dvfatiaki2021@gmail.com 
+          </div>
+          <hr style="margin:10px 0;border:none;border-top:1px solid rgba(255,255,255,0.03)">
+          <div class="small" style="line-height:1.6">
+            <strong>Baron Waqa</strong><br>Secretary General,  Pacific Islands Forum<br>T: (679) 7751382<br>Email: baron_waqa@hotmail.com  
+          </div>
+           <hr style="margin:10px 0;border:none;border-top:1px solid rgba(255,255,255,0.03)">
+          <div class="small" style="line-height:1.6">
+            <strong>Filimone Jitokoa</strong><br>Speaker, Parliament<br>T: (679) 9907900<br>Email: Filimone.jitoko@legislature.gov.fj
+
+          </div>
+        </div>
+
+      </aside>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> Isimeli Savutini — Built with attention to accessibility & performance.</div>
+    </footer>
+  </main>
+
+  <script>
+    // small utilities
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // reveal on scroll
+    const revealEls = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
+    }, {threshold:0.12});
+    revealEls.forEach(el=>io.observe(el));
+  </script>
+</body>
+</html>
